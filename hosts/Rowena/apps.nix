@@ -1,6 +1,10 @@
 { pkgs, lib, config, ... }:
 {
-    environment.defaultPackages = with pkgs; [
-        jellyfin
-      ];
+    environment.defaultPackages = with pkgs; [];
+
+    homebrew = {
+        casks = [
+            jellyfin
+        ];
+    };
 }
