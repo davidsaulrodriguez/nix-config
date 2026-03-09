@@ -1,9 +1,9 @@
 {
   description = "David's nix-common configs";
 
-  inputs = let version = "25.11"; in {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-${version}-darwin";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-${version}";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Add nix-homebrew
@@ -23,20 +23,26 @@
       "Davids-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          # nix-homebrew system module (bootstraps Homebrew if missing)
-          nix-homebrew.darwinModules.nix-homebrew
+            # nix-homebrew system module (bootstraps Homebrew if missing)
+            nix-homebrew.darwinModules.nix-homebrew
 
-          ./hosts/Davids-MacBook-Pro/default.nix
+            ./hosts/Davids-MacBook-Pro/default.nix
 
-          { _module.args.self = self; }  # so modules can use `self`
+            { _module.args.self = self; }  # so modules can use `self`
         ];
       };
 
       # later, add more hosts:
-      # "Work-Mac" = nix-common.lib.darwinSystem {
-      #   system = "aarch64-common";
-      #   modules = [ ./hosts/Work-Mac.nix { _module.args.self = self; } ];
-      # };
+       "Rowena" = nix-darwin.lib.darwinSystem {
+         system = "aarch64-darwin";
+         modules = [
+            nix-homebrew.darwinModules.nix-homebrew
+
+            ./hosts/Rowena/default.nix
+
+            { _module.args.self = self; }
+         ];
+       };
     };
   };
 }
