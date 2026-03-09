@@ -1,4 +1,3 @@
-# hosts/default.nix
 { pkgs, self, lib, ... }:
 {
     imports = [
