@@ -13,6 +13,7 @@
     brews = [];
     casks = [];
     masApps = {};
+    enableZshIntegrawtion = true;
   };
 
   nix-homebrew = lib.mkDefault {

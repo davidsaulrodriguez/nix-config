@@ -1,9 +1,9 @@
 {
   description = "David's nix-common configs";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+  inputs = let version = "25.11"; in {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-${version}-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-${version}";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Add nix-homebrew
