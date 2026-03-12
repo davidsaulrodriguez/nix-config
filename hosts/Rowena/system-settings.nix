@@ -11,8 +11,8 @@
             allowSleepByPowerButton = false;
         };
 
-        restartAfterFreeze = false;
-        restartAfterPowerFailure = false;
+        restartAfterFreeze = true;
+        restartAfterPowerFailure = true;
     };
 
 
@@ -21,7 +21,7 @@
     #################################
     programs = {
         zsh = {
-            enableAutosuggestion = true;
+            enableAutosuggestions = true;
             enableFastSyntaxHighlighting = true;
             enableSyntaxHighlighting = true;
             histSize = 100000;
