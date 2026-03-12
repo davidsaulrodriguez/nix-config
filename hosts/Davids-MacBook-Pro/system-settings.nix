@@ -1,0 +1,31 @@
+{ pkgs, self, lib, ... }: {
+
+    #################################
+    #        Power Settings         #
+    #################################
+    power = {
+        sleep = {
+            # computer = "never";
+            # display = "never";
+            # harddisk = "never";
+            allowSleepByPowerButton = true;
+        };
+
+        restartAfterFreeze = false;
+        restartAfterPowerFailure = false;
+    };
+
+
+    #################################
+    #        Program Settings       #
+    #################################
+    programs = {
+        zsh = {
+            enableAutosuggestion = true;
+            enableFastSyntaxHighlighting = true;
+            enableSyntaxHighlighting = true;
+            histSize = 100000;
+
+        };
+    };
+}

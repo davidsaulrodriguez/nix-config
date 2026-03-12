@@ -4,7 +4,9 @@
 
     homebrew = {
         casks = [
-            jellyfin
+            {
+                name = "jellyfin";
+            }
         ];
     };
 }

@@ -14,6 +14,8 @@
     casks = [];
     masApps = {};
     enableZshIntegration = true;
+    enableBashIntegration = false;
+    enableFishIntegration = false;
   };
 
   nix-homebrew = lib.mkDefault {
