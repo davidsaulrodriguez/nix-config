@@ -1,4 +1,3 @@
-# modules/common/common.nix
 { pkgs, self, lib, ... }: {
   imports = [
     ./default-dock.nix

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, self, ... }:
 {
     environment.defaultPackages = with pkgs; [];
 

@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, self, ... }:
 {
     system.defaults.dock = {
         autohide = lib.mkDefault true;

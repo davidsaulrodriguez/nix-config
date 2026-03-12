@@ -1,4 +1,4 @@
-{ pkgs, self, lib, ... }: {
+{ pkgs, self, lib, config, ... }: {
 
     #################################
     #        Power Settings         #

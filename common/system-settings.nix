@@ -1,4 +1,4 @@
-{pkgs, self, lib, }: {
+{pkgs, self, lib, config, ... }: {
 
     system = {
         stateVersion = 6; # backwards compatibility
@@ -28,7 +28,7 @@
     programs = {
         zsh = {
             enable = lib.mkDefault true;
-            enableAutosuggestion = lib.mkDefault false;
+            enableAutosuggestions = lib.mkDefault false;
             enableFastSyntaxHighlighting = lib.mkDefault false;
             enableSyntaxHighlighting = lib.mkDefault false;
             histSize = lib.mkDefault 2000;

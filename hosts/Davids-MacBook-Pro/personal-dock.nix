@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, self, ... }:
 let
   smallSpacer = { spacer = { small = true;  }; };
   bigSpacer   = { spacer = { small = false; }; };
