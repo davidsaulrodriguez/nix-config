@@ -1,7 +1,7 @@
 { config, lib, self, ... }:
 {
     system.defaults.dock = {
-        autohide = lib.mkDefault true;
+        autohide = lib.mkDefault false;
         tilesize = lib.mkDefault 64;
         mru-spaces = lib.mkDefault true;
         persistent-apps = lib.mkDefault [
