@@ -2,6 +2,7 @@
 {
     imports = [
         ./apps.nix
+        ../../modules/apps/games/server/default.nix
         ../../modules/common.nix
         ../../modules/homebrew.nix
     ];
