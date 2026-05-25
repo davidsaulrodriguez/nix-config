@@ -25,7 +25,6 @@
             enableFastSyntaxHighlighting = true;
             enableSyntaxHighlighting = true;
             histSize = 100000;
-
         };
     };
 }

@@ -11,8 +11,7 @@
             allowSleepByPowerButton = true;
         };
 
-        restartAfterFreeze = false;
-        restartAfterPowerFailure = false;
+        restartAfterFreeze = true;
     };
 
 
@@ -21,11 +20,28 @@
     #################################
     programs = {
         zsh = {
-            enableAutosuggestion = true;
+            enableAutosuggestions = true;
+            enableCompletion = true;
             enableFastSyntaxHighlighting = true;
-            enableSyntaxHighlighting = true;
+            enableSyntaxHighlighting = false;
             histSize = 100000;
 
         };
+    };
+
+    #################################
+    #   System Settings Overrides   #
+    #################################
+    system = {
+        primaryUser = "david";
+        defaults = {
+            screencapture = {
+                location = "~/Pictures/screenshots";
+            };
+        };
+    };
+
+    networking = {
+        hostName = "Davids-MacBook-Pro";
     };
 }

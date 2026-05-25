@@ -20,9 +20,6 @@
             harddisk = lib.mkDefault null; # Amount of idle time (in minutes) until hard disks sleep. (Can be "never")
             allowSleepByPowerButton = lib.mkDefault null; # Boolean, but can be null
         };
-
-        restartAfterFreeze = lib.mkDefault null; # Boolean, default is null
-        restartAfterPowerFailure = lib.mkDefault null; # Boolean, default is null
     };
 
     programs = {
@@ -32,7 +29,6 @@
             enableFastSyntaxHighlighting = lib.mkDefault false;
             enableSyntaxHighlighting = lib.mkDefault false;
             histSize = lib.mkDefault 2000;
-
         };
     };
 
