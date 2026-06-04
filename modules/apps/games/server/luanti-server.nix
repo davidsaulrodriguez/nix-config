@@ -5,30 +5,22 @@
     pkgs.luanti
   ];
 
-  users.users.luanti = {
-    isSystemUser = true;
-    home = "/var/lib/luanti";
-    createHome = true;
-  };
-
-  users.groups.luanti = {};
-
-  launchd.daemons.luanti-server = {
-    serviceConfig = {
-      Label = "org.nixos.luanti-server";
-      UserName = "luanti";
-      GroupName = "luanti";
-      WorkingDirectory = "/var/lib/luanti";
-      ProgramArguments = [
-        "${pkgs.luanti}/bin/luanti"
-        "--server"
-        "--world"
-        "/var/lib/luanti/worlds/Rowena"
-      ];
-      RunAtLoad = true;
-      KeepAlive = true;
+  launchd.agents.luanti-server = {
+      enable = true;
+      serviceConfig = {
+        Label = "org.nixos.luanti-server";
+        ProgramArguments = [
+          "${pkgs.luanti}/bin/luanti"
+          "--server"
+          "--world"
+          "${config.home.homeDirectory}/luanti/worlds/Rowena"
+        ];
+        RunAtLoad = true;
+        KeepAlive = true;
+        WorkingDirectory = "${config.home.homeDirectory}/luanti";
+      };
     };
-  };
+
 
   environment.etc."luanti/minetest.conf".text = ''
     port = 30000
