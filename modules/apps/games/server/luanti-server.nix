@@ -5,21 +5,23 @@
     pkgs.luanti
   ];
 
-  launchd.agents.luanti-server = {
-      enable = true;
+  launchd.user.agents.luanti-server = {
       serviceConfig = {
         Label = "org.nixos.luanti-server";
         ProgramArguments = [
           "${pkgs.luanti}/bin/luanti"
           "--server"
           "--world"
-          "${config.home.homeDirectory}/luanti/worlds/Rowena"
+          "$HOME/luanti/worlds/Rowena"
         ];
         RunAtLoad = true;
         KeepAlive = true;
-        WorkingDirectory = "${config.home.homeDirectory}/luanti";
+        WorkingDirectory = "$HOME/luanti";
+        EnvironmentVariables = {
+          HOME = "$HOME";
+        };
       };
-    };
+  };
 
 
   environment.etc."luanti/minetest.conf".text = ''
