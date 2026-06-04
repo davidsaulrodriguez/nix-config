@@ -7,7 +7,6 @@
 
   users.users.luanti = {
     isSystemUser = true;
-    group = "luanti";
     home = "/var/lib/luanti";
     createHome = true;
   };
@@ -42,6 +41,5 @@
     max_users = 10
     enable_rollback_recording = true
     disallow_empty_password = true
-    # static_spawnpoint = 0, 16, 0
   '';
 }
