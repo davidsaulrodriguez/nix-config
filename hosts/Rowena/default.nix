@@ -2,7 +2,7 @@
 {
     imports = [
         ./apps.nix
-        ../../modules/apps/games/server/default.nix
+        ../../modules/apps/games/server/luanti-server.nix
         ../../modules/common.nix
         ../../modules/homebrew.nix
     ];
