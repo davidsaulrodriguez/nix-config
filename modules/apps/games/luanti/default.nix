@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
     environment.defaultPackages = with pkgs; [
-        luanti-client
+        luanti
     ];
 
     homebrew.masApps = {
