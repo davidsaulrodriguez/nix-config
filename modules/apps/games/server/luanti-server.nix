@@ -14,20 +14,20 @@
 
   users.groups.luanti = {};
 
-  networking.firewall.allowedUDPPorts = [ 30000 ];
-
-  systemd.services.luanti-server = {
-    description = "Luanti Dedicated Server";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-
+  launchd.daemons.luanti-server = {
     serviceConfig = {
-      User = "luanti";
-      Group = "luanti";
+      Label = "org.nixos.luanti-server";
+      UserName = "luanti";
+      GroupName = "luanti";
       WorkingDirectory = "/var/lib/luanti";
-      ExecStart = "${pkgs.luanti}/bin/luanti --server --world /var/lib/luanti/worlds/Rowena";
-      Restart = "on-failure";
-      RestartSec = "5";
+      ProgramArguments = [
+        "${pkgs.luanti}/bin/luanti"
+        "--server"
+        "--world"
+        "/var/lib/luanti/worlds/Rowena"
+      ];
+      RunAtLoad = true;
+      KeepAlive = true;
     };
   };
 
