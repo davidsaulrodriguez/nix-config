@@ -2,7 +2,7 @@
 {
     imports = [
         ../profiles/workstation.nix
-        ../../modules/apps/games/luanti/default.nix
+        ../../modules/apps/games.nix # Include some games
         ./personal-dock.nix # Include my personalized dock
         ./system-settings.nix # Include my personalized system setting overrides
     ];

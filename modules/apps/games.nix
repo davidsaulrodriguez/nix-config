@@ -5,6 +5,6 @@
     ];
 
     homebrew.masApps = {
-#        "Apple Developer"   = 640199958;
+        "Grid Legends" = 1636273501;
     };
 }

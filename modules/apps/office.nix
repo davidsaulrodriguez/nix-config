@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+    environment.defaultPackages = with pkgs; [
+        # google-chrome
+    ];
+
     homebrew.masApps = {
 #        "Keynote" = 409183694;
 #        "Numbers" = 409203825;
