@@ -7,7 +7,7 @@
     onActivation = {
       autoUpdate = false;
       upgrade = false;
-      cleanup = "zap";  # Removes undeclared brews/casks
+      cleanup = "none";  # change to 'zap' to remove undeclared brews/casks
     };
     taps = [];
     brews = [];
