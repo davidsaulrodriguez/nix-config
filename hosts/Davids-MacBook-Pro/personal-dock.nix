@@ -13,6 +13,7 @@ in
             "/System/Applications/Apps.app"
             smallSpacer
             "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+            "/Users/david/Applications/Google\ Gemini.app"
             "/System/Applications/Mail.app"
             smallSpacer
             "/System/Applications/Messages.app"
@@ -26,6 +27,7 @@ in
             "/System/Applications/Shortcuts.app"
             "/Applications/Nix\ Apps/PhpStorm.app"
             "/Applications/Nix\ Apps/WebStorm.app"
+            "/Users/david/Applications/AI\ Studio.app"
             "/Applications/Xcode.app"
             smallSpacer
             "/System/Applications/Utilities/Screen\ Sharing.app"
