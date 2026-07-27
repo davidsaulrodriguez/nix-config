@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
     environment.defaultPackages = with pkgs; [
-        # google-chrome
+        google-chrome
     ];
 
     homebrew.masApps = {
