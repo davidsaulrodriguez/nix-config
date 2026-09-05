@@ -7,6 +7,9 @@
             {
                 name = "jellyfin";
             }
+            {
+                name = "transmission";
+            }
         ];
     };
 }
