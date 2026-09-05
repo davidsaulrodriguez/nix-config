@@ -2,6 +2,8 @@
 let
   smallSpacer = { spacer = { small = true;  }; };
   bigSpacer   = { spacer = { small = false; }; };
+  chromeWebApp = "/Users/david/Applications/Chrome\ Apps.localized/";
+  nixApp = "/Applications/Nix\ Apps/";
 in
 {
     system.defaults.dock = {
@@ -12,11 +14,14 @@ in
         persistent-apps = [
             "/System/Applications/Apps.app"
             smallSpacer
-            "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
-            "/Users/david/Applications/Google\ Gemini.app"
+            (nixApp + "Google\ Chrome.app")
+            (chromeWebApp + "Google\ Gemini.app")
+            # "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+            (chromeWebApp + "YouTube.app")
             "/System/Applications/Mail.app"
             smallSpacer
-            "/System/Applications/Messages.app"
+            (chromeWebApp + "Messages.app")
+#            "/System/Applications/Messages.app"
             "/System/Applications/Phone.app"
             "/System/Applications/Facetime.app"
             smallSpacer
@@ -25,9 +30,9 @@ in
             "/System/Applications/Calendar.app"
             smallSpacer
             "/System/Applications/Shortcuts.app"
-            "/Applications/Nix\ Apps/PhpStorm.app"
-            "/Applications/Nix\ Apps/WebStorm.app"
-            "/Users/david/Applications/AI\ Studio.app"
+            (nixApp + "PhpStorm.app")
+            (nixApp + "WebStorm.app")
+            (chromeWebApp + "Google\ AI\ Studio.app")
             "/Applications/Xcode.app"
             smallSpacer
             "/System/Applications/Utilities/Screen\ Sharing.app"
