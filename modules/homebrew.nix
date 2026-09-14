@@ -5,8 +5,8 @@
     enable = true;
     caskArgs.appdir = "/Applications/Homebrew\ Apps";
     onActivation = {
-      autoUpdate = false;
-      upgrade = false;
+      autoUpdate = true;
+      upgrade = true;
       cleanup = "none";  # change to 'zap' to remove undeclared brews/casks
     };
     taps = [];

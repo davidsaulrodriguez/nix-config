@@ -30,6 +30,7 @@ in
             "/System/Applications/Calendar.app"
             smallSpacer
             "/System/Applications/Shortcuts.app"
+            (nixApp + "IntelliJ\ IDEA.app")
             (nixApp + "PhpStorm.app")
             (nixApp + "WebStorm.app")
             (chromeWebApp + "Google\ AI\ Studio.app")
