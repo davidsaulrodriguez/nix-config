@@ -9,6 +9,7 @@
         openjdk25
         direnv
         nix-direnv
+        laravel
     ];
 
     # Automatically hook direnv into shell
