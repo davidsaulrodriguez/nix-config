@@ -9,8 +9,8 @@
         openjdk25
         direnv
         nix-direnv
-        php83
-        php83Packages.composer
+        php84
+        php84Packages.composer
         laravel
     ];
 
