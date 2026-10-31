@@ -23,7 +23,7 @@ in
             (chromeWebApp + "Messages.app")
 #            "/System/Applications/Messages.app"
 #            "/System/Applications/Phone.app"
-            (chromeWebApp + "Google\ Meet")
+            (chromeWebApp + "Google\ Meet.app")
             smallSpacer
 #            "/System/Applications/Notes.app"
             (chromeWebApp + "Google\ Keep.app")
