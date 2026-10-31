@@ -15,17 +15,18 @@ in
             "/System/Applications/Apps.app"
             smallSpacer
             (nixApp + "Google\ Chrome.app")
-            (chromeWebApp + "Google\ Gemini.app")
+            "/Applications/Gemini.app"
             # "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
             (chromeWebApp + "YouTube.app")
             "/System/Applications/Mail.app"
             smallSpacer
             (chromeWebApp + "Messages.app")
 #            "/System/Applications/Messages.app"
-            "/System/Applications/Phone.app"
-            "/System/Applications/Facetime.app"
+#            "/System/Applications/Phone.app"
+            (chromeWebApp + "Google\ Meet")
             smallSpacer
-            "/System/Applications/Notes.app"
+#            "/System/Applications/Notes.app"
+            (chromeWebApp + "Google\ Keep.app")
             "/System/Applications/Reminders.app"
             "/System/Applications/Calendar.app"
             smallSpacer
@@ -34,10 +35,11 @@ in
             (nixApp + "PhpStorm.app")
             (nixApp + "WebStorm.app")
             (chromeWebApp + "Google\ AI\ Studio.app")
+            "/Applications/Antigravity\ IDE.app"
             "/Applications/Xcode.app"
             smallSpacer
             "/System/Applications/Utilities/Screen\ Sharing.app"
-            "/System/Applications/iPhone\ Mirroring.app"
+            "/Applications/LinkMyMac.app"
             "/Applications/iTerm.app"
             "/System/Applications/System\ Settings.app"
         ];

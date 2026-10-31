@@ -12,6 +12,7 @@
         php84
         php84Packages.composer
         laravel
+        yt-dlp
     ];
 
     # Automatically hook direnv into shell
