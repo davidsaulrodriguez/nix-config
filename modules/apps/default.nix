@@ -5,6 +5,6 @@ in
 {
     imports = [
         ./office.nix # Import office suite by default
-        ./utilities.nix # Import helpful utility applications
+#        ./utilities.nix # Import helpful utility applications
     ];
 }
