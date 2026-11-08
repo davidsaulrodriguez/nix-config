@@ -4,10 +4,12 @@ let
   caddyfile = pkgs.writeText "Caddyfile" ''
     jellyfin.enyutech.com {
         reverse_proxy 127.0.0.1:8096
+        tls internal
     }
 
     transmission.enyutech.com {
         reverse_proxy 127.0.0.1:9091
+        tls internal
     }
   '';
 in
