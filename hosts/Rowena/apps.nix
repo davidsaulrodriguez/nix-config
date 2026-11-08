@@ -4,17 +4,10 @@ let
   caddyfile = pkgs.writeText "Caddyfile" ''
     jellyfin.enyutech.com {
         reverse_proxy 127.0.0.1:8096
-        tls {
-            # Let Caddy pull the Let's Encrypt certs through your running Tailscale engine
-            get_certificate tailscale
-        }
     }
 
     transmission.enyutech.com {
         reverse_proxy 127.0.0.1:9091
-        tls {
-            get_certificate tailscale
-        }
     }
   '';
 in
