@@ -12,4 +12,17 @@
             }
         ];
     };
+
+    # Automatically manage the Caddy reverse proxy daemon
+    services.caddy = {
+        enable = true;
+        virtualHosts = {
+            "jellyfin.enyutech.com".extraConfig = ''
+                reverse_proxy 127.0.0.1:8096
+            '';
+            "torrent.enyutech.com".extraConfig = ''
+                reverse_proxy 127.0.0.1:9091
+            '';
+        };
+    };
 }
