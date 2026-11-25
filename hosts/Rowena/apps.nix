@@ -1,4 +1,4 @@
-{ pkgs, lib, config, self, ... }:
+{ pkgs, ... }:
 let
   # Build a declarative Caddyfile text asset with correct subdomains
   caddyfile = pkgs.writeText "Caddyfile" ''
@@ -16,11 +16,11 @@ in
 {
   # 1. Install the caddy binary cleanly via Nix
   environment.systemPackages = [ pkgs.caddy ];
-  environment.defaultPackages = with pkgs; [];
 
-  # 2. Tell nix-darwin to run Caddy as a native system daemon on port 443
+  # 2. Run Caddy as a native system daemon on port 443
   launchd.daemons.caddy = {
     script = "${pkgs.caddy}/bin/caddy run --config ${caddyfile} --adapter caddyfile";
+    environment.HOME = "/var/root"; # Required by Caddy/Go to store `tls internal` PKI certs
     serviceConfig = {
       RunAtLoad = true;
       KeepAlive = true;
@@ -29,13 +29,14 @@ in
     };
   };
 
-  # 3. Manage your applications via Homebrew casks cleanly
+  # 3. Manage server apps via Homebrew and Mac App Store
   homebrew = {
-    enable = true; # Ensures homebrew evaluation is activated
     casks = [
       "jellyfin"
       "transmission"
     ];
-    brews = []; # Cleaned up duplicate homebrew caddy binary
+    masApps = {
+      "Tailscale" = 1475387142;
+    };
   };
 }

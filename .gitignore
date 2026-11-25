@@ -125,3 +125,8 @@ tags
 # Ignore all local history of files
 .history
 .ionide
+
+### macOS & Nix ###
+.DS_Store
+result
+result-*

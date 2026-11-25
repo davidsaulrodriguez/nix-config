@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
-    environment.defaultPackages = with pkgs; [
-        luanti
-    ];
+  environment.systemPackages = with pkgs; [
+    luanti
+  ];
 
-    homebrew.masApps = {
-        "Grid Legends" = 1636273501;
-    };
+  homebrew.masApps = {
+    "Grid Legends" = 1636273501;
+  };
 }

@@ -1,4 +1,5 @@
-{ pkgs, self, lib, config, ... }: {
+{ pkgs, ... }:
+{
   # Shared system packages for all hosts.
   environment.systemPackages = with pkgs; [
     vim

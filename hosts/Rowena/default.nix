@@ -1,27 +1,26 @@
-{ pkgs, self, lib, config, ... }:
+{ ... }:
 {
-    imports = [
-        ./apps.nix
-        ../../modules/common.nix
-        ../../modules/homebrew.nix
-    ];
+  imports = [
+    ../../modules/common.nix
+    ./apps.nix
+    ./system-settings.nix
+  ];
 
-    # Full nix-homebrew management
-    nix-homebrew = {
-        user = "david";
-        autoMigrate = true;  # Migrates manual installs to nix-declared
-    };
+  # Full nix-homebrew management
+  nix-homebrew = {
+    user = "david";
+    autoMigrate = true; # Migrates manual installs to nix-declared
+  };
 
-    nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
-    # Anything specific to this Mac goes here, for example:
-    networking.hostName = "Rowena";
+  networking.hostName = "Rowena";
 
-    # Host specific System Default settings
-    system.primaryUser = "david";
+  # Host-specific system default settings
+  system.primaryUser = "david";
 
-    # Where screenshots will live when taken because the desktop by default is insane!
-    system.defaults.screencapture = {
-        location = "~/Pictures/screenshots";
-    };
+  # Store screenshots away from Desktop
+  system.defaults.screencapture = {
+    location = "~/Pictures/screenshots";
+  };
 }

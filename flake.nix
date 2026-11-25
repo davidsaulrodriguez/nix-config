@@ -1,48 +1,32 @@
 {
-  description = "David's nix-common configs";
+  description = "David's nix-darwin configs";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Add nix-homebrew
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-#    nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Define specific taps as flake inputs
-    homebrew-core.url = "github:homebrew/homebrew-core";
-    homebrew-core.flake = false;
-    homebrew-cask.url = "github:homebrew/homebrew-cask";
-    homebrew-cask.flake = false;
   };
 
-  outputs = inputs@{ self, nix-darwin, nix-homebrew, nixpkgs, ... }: {
+  outputs = { self, nix-darwin, nix-homebrew, ... }: {
     darwinConfigurations = {
-      # main laptop (MacBook Pro M2 Max; 96GB RAM, 2TB Storage)
+      # Main laptop (MacBook Pro M2 Max; 96GB RAM, 2TB Storage)
       "Davids-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+        specialArgs = { inherit self; };
         modules = [
-            # nix-homebrew system module (bootstraps Homebrew if missing)
-            nix-homebrew.darwinModules.nix-homebrew
-
-            ./hosts/Davids-MacBook-Pro/default.nix
-
-            { _module.args.self = self; }  # so modules can use `self`
+          nix-homebrew.darwinModules.nix-homebrew
+          ./hosts/Davids-MacBook-Pro/default.nix
         ];
       };
 
-      # later, add more hosts:
-       "Rowena" = nix-darwin.lib.darwinSystem {
-         system = "aarch64-darwin";
-         modules = [
-            nix-homebrew.darwinModules.nix-homebrew
-
-            ./hosts/Rowena/default.nix
-
-            { _module.args.self = self; }
-         ];
-       };
+      "Rowena" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit self; };
+        modules = [
+          nix-homebrew.darwinModules.nix-homebrew
+          ./hosts/Rowena/default.nix
+        ];
+      };
     };
   };
 }

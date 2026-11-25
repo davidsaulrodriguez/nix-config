@@ -1,24 +1,27 @@
-{ pkgs, lib, config, nix-homebrew, ... }:
+{ pkgs, lib, config, ... }:
 {
+  # Ensure the `mas` CLI is available whenever Homebrew management is active
+  environment.systemPackages = lib.mkIf config.homebrew.enable [ pkgs.mas ];
+
   # Enable Brew integration
-  homebrew = lib.mkDefault {
-    enable = true;
-    caskArgs.appdir = "/Applications/Homebrew\ Apps";
+  homebrew = {
+    enable = lib.mkDefault true;
+    caskArgs.appdir = lib.mkDefault "/Applications";
     onActivation = {
-      autoUpdate = true;
-      upgrade = true;
-      cleanup = "none";  # change to 'zap' to remove undeclared brews/casks
+      # Keep false with nix-homebrew: Homebrew itself is pinned in flake.lock, and
+      # brew's internal auto-update re-exec strips Nix/Homebrew paths needed by `mas`.
+      autoUpdate = lib.mkDefault false;
+      upgrade = lib.mkDefault true;
+      cleanup = lib.mkDefault "uninstall"; # change to "zap" to also remove app data
     };
-    taps = [];
-    brews = [];
-    casks = [];
-    masApps = {};
-    enableZshIntegration = true;
-    enableBashIntegration = false;
-    enableFishIntegration = false;
+    enableZshIntegration = lib.mkDefault true;
+    enableBashIntegration = lib.mkDefault false;
+    enableFishIntegration = lib.mkDefault false;
   };
 
-  nix-homebrew = lib.mkDefault {
-    autoMigrate = false;
+  nix-homebrew = {
+    enable = lib.mkDefault true;
+    mutableTaps = lib.mkDefault true;
+    autoMigrate = lib.mkDefault false;
   };
 }
